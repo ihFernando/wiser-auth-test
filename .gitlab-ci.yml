@@ -1,0 +1,18 @@
+# Importante definir qual a versão da imagem para que encontre as dependencias
+# Integrando plataformas do Gitlab+Vercel para realizar o deploy da aplicação
+
+image: node:12-alpine
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - npm install
+    - echo "Iniciando teste da aplicação"
+    - npm run test:prd
+    - echo "Teste realizado com sucesso!"
+
+  only:
+    - master
